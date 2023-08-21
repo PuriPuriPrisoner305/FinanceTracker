@@ -17,6 +17,10 @@
 		22D7A26F2A8E2E7D00CC5D26 /* HomeScreenView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D7A26E2A8E2E7D00CC5D26 /* HomeScreenView.storyboard */; };
 		22D7A2712A8E2EF000CC5D26 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2702A8E2EF000CC5D26 /* HomeScreenView.swift */; };
 		22D7A2752A8E30DE00CC5D26 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2742A8E30DE00CC5D26 /* CustomTabBar.swift */; };
+		22D7A2772A8E38C500CC5D26 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2762A8E38C500CC5D26 /* CustomTabBarController.swift */; };
+		22D7A2792A8E411600CC5D26 /* HomeScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2782A8E411600CC5D26 /* HomeScreenRouter.swift */; };
+		22D7A27B2A93263100CC5D26 /* CustomTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D7A27A2A93263100CC5D26 /* CustomTabBarController.storyboard */; };
+		22D7A27D2A932D3A00CC5D26 /* CustomTabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A27C2A932D3A00CC5D26 /* CustomTabBarRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		22D7A26E2A8E2E7D00CC5D26 /* HomeScreenView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreenView.storyboard; sourceTree = "<group>"; };
 		22D7A2702A8E2EF000CC5D26 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		22D7A2742A8E30DE00CC5D26 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		22D7A2762A8E38C500CC5D26 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		22D7A2782A8E411600CC5D26 /* HomeScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenRouter.swift; sourceTree = "<group>"; };
+		22D7A27A2A93263100CC5D26 /* CustomTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomTabBarController.storyboard; sourceTree = "<group>"; };
+		22D7A27C2A932D3A00CC5D26 /* CustomTabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,7 @@
 			children = (
 				22D7A26E2A8E2E7D00CC5D26 /* HomeScreenView.storyboard */,
 				22D7A2702A8E2EF000CC5D26 /* HomeScreenView.swift */,
+				22D7A2782A8E411600CC5D26 /* HomeScreenRouter.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -107,6 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				22D7A2742A8E30DE00CC5D26 /* CustomTabBar.swift */,
+				22D7A2762A8E38C500CC5D26 /* CustomTabBarController.swift */,
+				22D7A27C2A932D3A00CC5D26 /* CustomTabBarRouter.swift */,
+				22D7A27A2A93263100CC5D26 /* CustomTabBarController.storyboard */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -169,6 +181,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22D7A27B2A93263100CC5D26 /* CustomTabBarController.storyboard in Resources */,
 				22D7A26F2A8E2E7D00CC5D26 /* HomeScreenView.storyboard in Resources */,
 				22D7A2642A8E2D7A00CC5D26 /* LaunchScreen.storyboard in Resources */,
 				22D7A2612A8E2D7A00CC5D26 /* Assets.xcassets in Resources */,
@@ -184,7 +197,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				22D7A2592A8E2D7800CC5D26 /* ViewController.swift in Sources */,
+				22D7A2772A8E38C500CC5D26 /* CustomTabBarController.swift in Sources */,
 				22D7A2552A8E2D7800CC5D26 /* AppDelegate.swift in Sources */,
+				22D7A27D2A932D3A00CC5D26 /* CustomTabBarRouter.swift in Sources */,
+				22D7A2792A8E411600CC5D26 /* HomeScreenRouter.swift in Sources */,
 				22D7A2712A8E2EF000CC5D26 /* HomeScreenView.swift in Sources */,
 				22D7A2572A8E2D7800CC5D26 /* SceneDelegate.swift in Sources */,
 				22D7A2752A8E30DE00CC5D26 /* CustomTabBar.swift in Sources */,
