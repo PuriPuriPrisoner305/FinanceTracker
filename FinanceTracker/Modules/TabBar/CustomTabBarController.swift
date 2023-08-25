@@ -17,8 +17,16 @@ class CustomTabBarController: UITabBarController {
     
     func setup() {
         self.viewControllers = CustomTabBarRouter().tabbarController()
-        self.customTabBar.tintColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
-        self.customTabBar.unselectedItemTintColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
+        self.customTabBar.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        let color = UIColor(red: 146/255.0, green: 146/255.0, blue: 146/255.0, alpha: 1.0)
+        self.customTabBar.unselectedItemTintColor = color
+        self.customTabBar.backgroundColor = .white
+        
+        self.customTabBar.standardAppearance.shadowImage = nil
+        self.customTabBar.scrollEdgeAppearance?.shadowImage = nil
+        self.customTabBar.standardAppearance.shadowColor = nil
+        self.customTabBar.scrollEdgeAppearance?.shadowColor = nil
+
         self.delegate = self
     }
 }

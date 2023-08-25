@@ -16,10 +16,10 @@ class CustomTabBar: UITabBar {
         
         middleButton.frame.size = CGSize(width: 48, height: 48)
         
-        let image = UIImage(named: "plus")
+        let image = UIImage(systemName: "plus")
         middleButton.setImage(image, for: .normal)
         middleButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15)
-        middleButton.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        middleButton.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         middleButton.tintColor = .white
         middleButton.layer.cornerRadius = middleButton.frame.width / 2
         

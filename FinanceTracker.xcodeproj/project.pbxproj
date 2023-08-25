@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		107DFCAD392DFC255C2419BD /* Pods_FinanceTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E12132EA26C261760907367 /* Pods_FinanceTracker.framework */; };
+		2256334A2A98A36100467180 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225633482A98A36100467180 /* TransactionCell.swift */; };
+		2256334B2A98A36100467180 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225633492A98A36100467180 /* TransactionCell.xib */; };
+		2256334D2A98ACEA00467180 /* HomeScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2256334C2A98ACEA00467180 /* HomeScreenPresenter.swift */; };
 		22823CDE2A97ED4A0045C710 /* HomeScreenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22823CDD2A97ED4A0045C710 /* HomeScreenEntity.swift */; };
 		22D7A2552A8E2D7800CC5D26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2542A8E2D7800CC5D26 /* AppDelegate.swift */; };
 		22D7A2572A8E2D7800CC5D26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2562A8E2D7800CC5D26 /* SceneDelegate.swift */; };
@@ -26,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		225633482A98A36100467180 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		225633492A98A36100467180 /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
+		2256334C2A98ACEA00467180 /* HomeScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenPresenter.swift; sourceTree = "<group>"; };
 		22823CDD2A97ED4A0045C710 /* HomeScreenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenEntity.swift; sourceTree = "<group>"; };
 		22D7A2512A8E2D7800CC5D26 /* FinanceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D7A2542A8E2D7800CC5D26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +66,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		225633472A98A34800467180 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				225633482A98A36100467180 /* TransactionCell.swift */,
+				225633492A98A36100467180 /* TransactionCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		22D7A2482A8E2D7800CC5D26 = {
 			isa = PBXGroup;
 			children = (
@@ -107,8 +122,10 @@
 		22D7A26D2A8E2E0400CC5D26 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				225633472A98A34800467180 /* Cell */,
 				22D7A26E2A8E2E7D00CC5D26 /* HomeScreenView.storyboard */,
 				22D7A2702A8E2EF000CC5D26 /* HomeScreenView.swift */,
+				2256334C2A98ACEA00467180 /* HomeScreenPresenter.swift */,
 				22823CDD2A97ED4A0045C710 /* HomeScreenEntity.swift */,
 				22D7A2782A8E411600CC5D26 /* HomeScreenRouter.swift */,
 			);
@@ -212,6 +229,7 @@
 			files = (
 				22D7A27B2A93263100CC5D26 /* CustomTabBarController.storyboard in Resources */,
 				22D7A26F2A8E2E7D00CC5D26 /* HomeScreenView.storyboard in Resources */,
+				2256334B2A98A36100467180 /* TransactionCell.xib in Resources */,
 				22D7A2642A8E2D7A00CC5D26 /* LaunchScreen.storyboard in Resources */,
 				22D7A2612A8E2D7A00CC5D26 /* Assets.xcassets in Resources */,
 				22D7A25C2A8E2D7800CC5D26 /* Main.storyboard in Resources */,
@@ -268,6 +286,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				22D7A2592A8E2D7800CC5D26 /* ViewController.swift in Sources */,
+				2256334D2A98ACEA00467180 /* HomeScreenPresenter.swift in Sources */,
+				2256334A2A98A36100467180 /* TransactionCell.swift in Sources */,
 				22D7A2772A8E38C500CC5D26 /* CustomTabBarController.swift in Sources */,
 				22D7A2552A8E2D7800CC5D26 /* AppDelegate.swift in Sources */,
 				22D7A27D2A932D3A00CC5D26 /* CustomTabBarRouter.swift in Sources */,

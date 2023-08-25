@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTV-IL-0wX" customClass="TransactionCell" customModule="FinanceTracker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="334" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="334" height="120"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music.note.tv.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="o4I-1u-0WY" userLabel="Image View">
+                        <rect key="frame" x="0.0" y="37.333333333333329" width="48" height="46.333333333333343"/>
+                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="DJO-ou-t8O"/>
+                            <constraint firstAttribute="width" constant="48" id="qxR-jr-Flj"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKm-Fc-1Zh">
+                        <rect key="frame" x="63" y="0.0" width="271" height="120"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spotify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0El-qi-1gV" userLabel="Name Label">
+                                <rect key="frame" x="0.0" y="36" width="57.333333333333336" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John's card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6X3-Kr-9Zf" userLabel="Description Label">
+                                <rect key="frame" x="0.0" y="66" width="83.666666666666671" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="+$1,234.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7d-Aq-UPH" userLabel="Amount Label">
+                                <rect key="frame" x="176.33333333333334" y="36" width="94.666666666666657" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" systemColor="systemGreenColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="10:50 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASN-U7-hb4" userLabel="Time Label">
+                                <rect key="frame" x="202.66666666666669" y="66" width="68.333333333333314" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ASN-U7-hb4" firstAttribute="bottom" secondItem="6X3-Kr-9Zf" secondAttribute="bottom" id="5oV-bB-ibc"/>
+                            <constraint firstItem="6X3-Kr-9Zf" firstAttribute="leading" secondItem="0El-qi-1gV" secondAttribute="leading" id="5yf-OJ-01I"/>
+                            <constraint firstAttribute="trailing" secondItem="i7d-Aq-UPH" secondAttribute="trailing" id="9Kj-AB-xxO"/>
+                            <constraint firstItem="0El-qi-1gV" firstAttribute="leading" secondItem="hKm-Fc-1Zh" secondAttribute="leading" id="aS5-Du-1Mb"/>
+                            <constraint firstAttribute="trailing" secondItem="ASN-U7-hb4" secondAttribute="trailing" id="hIQ-Ce-cOS"/>
+                            <constraint firstItem="i7d-Aq-UPH" firstAttribute="top" secondItem="0El-qi-1gV" secondAttribute="top" id="kPM-mh-jNv"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="top" secondItem="hKm-Fc-1Zh" secondAttribute="top" id="1Pq-pt-BE2"/>
+                <constraint firstItem="6X3-Kr-9Zf" firstAttribute="bottom" secondItem="o4I-1u-0WY" secondAttribute="bottom" id="2ar-w9-z1Z"/>
+                <constraint firstItem="o4I-1u-0WY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9Yf-iW-zeI"/>
+                <constraint firstItem="o4I-1u-0WY" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="9mA-ob-MGl"/>
+                <constraint firstAttribute="trailing" secondItem="hKm-Fc-1Zh" secondAttribute="trailing" id="etC-mU-Kzy"/>
+                <constraint firstItem="0El-qi-1gV" firstAttribute="top" secondItem="o4I-1u-0WY" secondAttribute="top" id="fhZ-fc-87O"/>
+                <constraint firstItem="hKm-Fc-1Zh" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" id="lKF-fU-Tda"/>
+                <constraint firstItem="hKm-Fc-1Zh" firstAttribute="leading" secondItem="o4I-1u-0WY" secondAttribute="trailing" constant="15" id="msU-Lu-UsU"/>
+            </constraints>
+            <size key="customSize" width="334" height="120"/>
+            <connections>
+                <outlet property="amountLabel" destination="i7d-Aq-UPH" id="aDI-ey-V1W"/>
+                <outlet property="descriptionLabel" destination="6X3-Kr-9Zf" id="44l-yj-ZsQ"/>
+                <outlet property="iconImageView" destination="o4I-1u-0WY" id="h4I-4L-Wnt"/>
+                <outlet property="nameLabel" destination="0El-qi-1gV" id="AJH-6j-yDm"/>
+                <outlet property="timeLabel" destination="ASN-U7-hb4" id="mec-os-bjT"/>
+            </connections>
+            <point key="canvasLocation" x="253.43511450381678" y="43.661971830985919"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="music.note.tv.fill" catalog="system" width="128" height="95"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

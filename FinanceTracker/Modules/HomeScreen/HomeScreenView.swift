@@ -13,6 +13,10 @@ class HomeScreenView: UIViewController {
     @IBOutlet weak var totalIncomeLabel: UILabel!
     @IBOutlet weak var totalExpenseLabel: UILabel!
     @IBOutlet weak var chartView: LineChartView!
+    @IBOutlet weak var transactionView: UIView!
+    @IBOutlet weak var transactionCollectionView: UICollectionView!
+    
+    @IBOutlet weak var transactionViewHeight: NSLayoutConstraint!
     
     var incomeDataEntries: [ChartDataEntry] = [
         ChartDataEntry(x: 0.0, y: 10.0),
@@ -32,11 +36,29 @@ class HomeScreenView: UIViewController {
         ChartDataEntry(x: 5.0, y: 3.0)
     ]
     
+    var presenter = HomeScreenPresenter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupChartView()
+        setup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setupTransactionViewConstraint()
+    }
+    
+    func setup() {
+        setupNavigation()
+        setupChartView()
+        setupTransactionView()
+        setupCollectionView()
+    }
+    
+    func setupNavigation() {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    // MARK: Setup Chart View
     func setupChartView() {
         chartView.delegate = self
         chartView.backgroundColor = .black
@@ -48,7 +70,8 @@ class HomeScreenView: UIViewController {
         setupChartAxis()
     
         // Animate Chart
-        chartView.animate(xAxisDuration: 2, easingOption: .linear)
+        chartView.animate(xAxisDuration: 2)
+        chartView.animate(yAxisDuration: 2)
     }
     
     func setupChartData() {
@@ -87,13 +110,56 @@ class HomeScreenView: UIViewController {
     }
     
     func setupDataSet(type: ChartDataType) -> LineChartDataSet {
-        let set1 = LineChartDataSet(entries: type == .income ? incomeDataEntries : expenseDatEntries)
-        set1.mode = .cubicBezier
-        set1.drawCirclesEnabled = false
-        set1.drawValuesEnabled = false
-        set1.colors = type == .income ? [.green] : [.red]
+        let dataSet: LineChartDataSet
+        if type == .income {
+            dataSet = LineChartDataSet(entries: incomeDataEntries)
+            let color = UIColor(red: 158/255.0, green: 239/255.0, blue: 152/255.0, alpha: 1.0)
+            dataSet.colors = [color]
+        } else {
+            dataSet = LineChartDataSet(entries: expenseDatEntries)
+            let color = UIColor(red: 225/255.0, green: 87/255.0, blue: 101/255.0, alpha: 1.0)
+            dataSet.colors = [color]
+        }
+        dataSet.mode = .cubicBezier
+        dataSet.drawCirclesEnabled = false
+        dataSet.drawValuesEnabled = false
         
-        return set1
+        return dataSet
+    }
+    
+    // MARK: Setup Transaction View
+    func setupTransactionView() {
+        // Setup cornerradius
+        let cornerRadius: CGFloat = 50.0
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = UIBezierPath(roundedRect: transactionView.bounds,
+                                      byRoundingCorners: [.topLeft, .topRight],
+                                      cornerRadii: CGSize(width: cornerRadius, height: cornerRadius)).cgPath
+        transactionView.layer.mask = maskLayer
+        transactionView.clipsToBounds = true
+    }
+    
+    // MARK: Setup Transaction View Constraints
+    func setupTransactionViewConstraint() {
+        // Setup Constraints
+        transactionView.translatesAutoresizingMaskIntoConstraints = false
+        let height = CGFloat(80 * presenter.transactionData.count)
+        let screenHeight = self.view.frame.height
+        if height < 500 {
+            transactionViewHeight.constant = 500.0
+        } else if height > screenHeight {
+            transactionViewHeight.constant = screenHeight - 100
+        } else {
+            transactionViewHeight.constant = height
+        }
+        
+        self.view.layoutIfNeeded()
+    }
+    
+    // MARK: Setup Collection View
+    func setupCollectionView() {
+        transactionCollectionView.register(TransactionCell.nib, forCellWithReuseIdentifier: TransactionCell.identifier)
+        
     }
 }
 
@@ -101,4 +167,26 @@ extension HomeScreenView: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         print(entry)
     }
+}
+
+extension HomeScreenView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let count = presenter.transactionData.count
+        return count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TransactionCell.identifier, for: indexPath) as? TransactionCell else { return UICollectionViewCell() }
+        cell.setupCell(data: presenter.transactionData[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = CGSize(width: collectionView.frame.width, height: 80)
+        return size
+    }
+}
+
+extension HomeScreenView: UIScrollViewDelegate {
+    
 }
