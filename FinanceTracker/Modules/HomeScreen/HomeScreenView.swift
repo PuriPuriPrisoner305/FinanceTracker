@@ -70,7 +70,7 @@ class HomeScreenView: UIViewController {
         setupChartAxis()
     
         // Animate Chart
-        chartView.animate(xAxisDuration: 2)
+        chartView.animate(xAxisDuration: 2, easingOption: .linear)
         chartView.animate(yAxisDuration: 2)
     }
     
@@ -153,6 +153,7 @@ class HomeScreenView: UIViewController {
             transactionViewHeight.constant = height
         }
         
+        transactionCollectionView.backgroundColor = .white
         self.view.layoutIfNeeded()
     }
     
