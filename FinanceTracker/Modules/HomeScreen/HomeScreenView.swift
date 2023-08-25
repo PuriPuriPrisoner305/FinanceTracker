@@ -123,6 +123,7 @@ class HomeScreenView: UIViewController {
         dataSet.mode = .cubicBezier
         dataSet.drawCirclesEnabled = false
         dataSet.drawValuesEnabled = false
+        dataSet.lineWidth = 2.5
         
         return dataSet
     }

@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         let mainVC = CustomTabBarRouter().showView()
-        window.rootViewController = mainVC
+        let navigation = UINavigationController(rootViewController: mainVC)
+        window.rootViewController = navigation
         self.window = window
         window.makeKeyAndVisible()
     }

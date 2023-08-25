@@ -11,6 +11,8 @@
 		2256334A2A98A36100467180 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225633482A98A36100467180 /* TransactionCell.swift */; };
 		2256334B2A98A36100467180 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225633492A98A36100467180 /* TransactionCell.xib */; };
 		2256334D2A98ACEA00467180 /* HomeScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2256334C2A98ACEA00467180 /* HomeScreenPresenter.swift */; };
+		225633522A98F31400467180 /* NewTransactionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 225633512A98F31400467180 /* NewTransactionView.storyboard */; };
+		225633542A98F32E00467180 /* NewTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225633532A98F32E00467180 /* NewTransactionView.swift */; };
 		22823CDE2A97ED4A0045C710 /* HomeScreenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22823CDD2A97ED4A0045C710 /* HomeScreenEntity.swift */; };
 		22D7A2552A8E2D7800CC5D26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2542A8E2D7800CC5D26 /* AppDelegate.swift */; };
 		22D7A2572A8E2D7800CC5D26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2562A8E2D7800CC5D26 /* SceneDelegate.swift */; };
@@ -32,6 +34,8 @@
 		225633482A98A36100467180 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		225633492A98A36100467180 /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		2256334C2A98ACEA00467180 /* HomeScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenPresenter.swift; sourceTree = "<group>"; };
+		225633512A98F31400467180 /* NewTransactionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewTransactionView.storyboard; sourceTree = "<group>"; };
+		225633532A98F32E00467180 /* NewTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionView.swift; sourceTree = "<group>"; };
 		22823CDD2A97ED4A0045C710 /* HomeScreenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenEntity.swift; sourceTree = "<group>"; };
 		22D7A2512A8E2D7800CC5D26 /* FinanceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D7A2542A8E2D7800CC5D26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +79,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		225633502A98F2F500467180 /* NewTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				225633512A98F31400467180 /* NewTransactionView.storyboard */,
+				225633532A98F32E00467180 /* NewTransactionView.swift */,
+			);
+			path = NewTransaction;
+			sourceTree = "<group>";
+		};
 		22D7A2482A8E2D7800CC5D26 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +125,7 @@
 		22D7A26B2A8E2D9000CC5D26 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				225633502A98F2F500467180 /* NewTransaction */,
 				22D7A2732A8E30B100CC5D26 /* TabBar */,
 				22D7A2722A8E30A200CC5D26 /* Common */,
 				22D7A26D2A8E2E0400CC5D26 /* HomeScreen */,
@@ -229,6 +243,7 @@
 			files = (
 				22D7A27B2A93263100CC5D26 /* CustomTabBarController.storyboard in Resources */,
 				22D7A26F2A8E2E7D00CC5D26 /* HomeScreenView.storyboard in Resources */,
+				225633522A98F31400467180 /* NewTransactionView.storyboard in Resources */,
 				2256334B2A98A36100467180 /* TransactionCell.xib in Resources */,
 				22D7A2642A8E2D7A00CC5D26 /* LaunchScreen.storyboard in Resources */,
 				22D7A2612A8E2D7A00CC5D26 /* Assets.xcassets in Resources */,
@@ -294,6 +309,7 @@
 				22D7A2792A8E411600CC5D26 /* HomeScreenRouter.swift in Sources */,
 				22823CDE2A97ED4A0045C710 /* HomeScreenEntity.swift in Sources */,
 				22D7A2712A8E2EF000CC5D26 /* HomeScreenView.swift in Sources */,
+				225633542A98F32E00467180 /* NewTransactionView.swift in Sources */,
 				22D7A2572A8E2D7800CC5D26 /* SceneDelegate.swift in Sources */,
 				22D7A2752A8E30DE00CC5D26 /* CustomTabBar.swift in Sources */,
 				22D7A25F2A8E2D7800CC5D26 /* FinanceTracker.xcdatamodeld in Sources */,

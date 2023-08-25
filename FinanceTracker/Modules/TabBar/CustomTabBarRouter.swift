@@ -17,8 +17,8 @@ class CustomTabBarRouter {
         }
         return view
     }
-    func navigateToHome() -> UINavigationController {
-        let homeScreen = UINavigationController(rootViewController: HomeScreenRouter().showView())
+    func navigateToHome() -> UIViewController {
+        let homeScreen = HomeScreenRouter().showView()
         homeScreen.tabBarItem = UITabBarItem(
             title: "Home",
             image: UIImage(systemName: "house"),
@@ -39,6 +39,10 @@ class CustomTabBarRouter {
     
     func tabbarController() -> [UIViewController] {
         return [navigateToHome(), navigateToHome2()]
+    }
+    
+    func navigateToNewTransaction(navigation: UINavigationController) {
+        print("navigatetotrans")
     }
 }
 
