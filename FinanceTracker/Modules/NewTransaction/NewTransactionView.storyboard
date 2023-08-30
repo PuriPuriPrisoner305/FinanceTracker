@@ -2,9 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,20 +15,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfC-xP-mtY" customClass="CustomSegmentedControl" customModule="FinanceTracker" customModuleProvider="target">
-                                <rect key="frame" x="60" y="110" width="255" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTa-az-JsQ" userLabel="Close Button">
+                                <rect key="frame" x="310.33333333333331" y="50" width="49.666666666666686" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="H1Z-xM-TJI"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark.circle.fill" catalog="system">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                            <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sfC-xP-mtY" customClass="CustomSegmentedControl" customModule="FinanceTracker" customModuleProvider="target">
+                                <rect key="frame" x="72.666666666666686" y="128" width="230" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="BDT-3y-3cX"/>
+                                    <constraint firstAttribute="height" constant="50" id="BDT-3y-3cX"/>
+                                    <constraint firstAttribute="width" constant="230" id="dya-FY-dcA"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="3"/>
+                                        <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="commaSeparatedButtonTitles" value="Income, Expense"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="commaSeparatedButtonTitles" value="Expense, Income"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
@@ -41,17 +51,41 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Expense" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5H-KC-11x">
+                                <rect key="frame" x="116.33333333333333" y="231" width="142.66666666666669" height="28.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FnA-1h-58i" userLabel="Amount Textfield">
+                                <rect key="frame" x="30" y="289.66666666666669" width="315" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="YlP-AB-mWr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="sfC-xP-mtY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="HAD-CI-S0K"/>
-                            <constraint firstItem="sfC-xP-mtY" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="60" id="bqv-IL-7os"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sfC-xP-mtY" secondAttribute="trailing" constant="60" id="cRD-SC-YKD"/>
+                            <constraint firstItem="n5H-KC-11x" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="3Lh-Fh-DyU"/>
+                            <constraint firstItem="FnA-1h-58i" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="EtS-vy-kF3"/>
+                            <constraint firstItem="JTa-az-JsQ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="LiU-LJ-EDe"/>
+                            <constraint firstItem="n5H-KC-11x" firstAttribute="top" secondItem="sfC-xP-mtY" secondAttribute="bottom" constant="53" id="SH0-YA-SyJ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FnA-1h-58i" secondAttribute="trailing" constant="30" id="U5Q-Nj-b3I"/>
+                            <constraint firstItem="sfC-xP-mtY" firstAttribute="top" secondItem="JTa-az-JsQ" secondAttribute="bottom" constant="30" id="bqv-IL-7os"/>
+                            <constraint firstItem="FnA-1h-58i" firstAttribute="top" secondItem="n5H-KC-11x" secondAttribute="bottom" constant="30" id="kz4-gM-aqg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="JTa-az-JsQ" secondAttribute="trailing" constant="15" id="r8F-Pt-hXU"/>
+                            <constraint firstItem="sfC-xP-mtY" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="rjH-EL-Oji"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="amountTextfield" destination="FnA-1h-58i" id="QXz-Xr-Zfh"/>
+                        <outlet property="closeButton" destination="JTa-az-JsQ" id="N1x-b1-yX0"/>
                         <outlet property="segmentedControlView" destination="sfC-xP-mtY" id="1lL-eq-tft"/>
+                        <outlet property="titleLabel" destination="n5H-KC-11x" id="FCL-cF-6ct"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -60,8 +94,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
     </resources>
 </document>

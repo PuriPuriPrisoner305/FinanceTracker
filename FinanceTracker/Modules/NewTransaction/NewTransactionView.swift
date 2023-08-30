@@ -8,26 +8,24 @@
 import UIKit
 
 class NewTransactionView: UIViewController {
-    @IBOutlet weak var segmentedControlView: UIView!
+    @IBOutlet weak var segmentedControlView: CustomSegmentedControl!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var amountTextfield: UITextField!
+    
+    @IBOutlet weak var closeButton: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setup()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    func setup() {
+        amountTextfield.layer.cornerRadius = 20
+        closeButton.addTarget(self, action: #selector(tapCloseButton), for: .touchUpInside)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func tapCloseButton() {
+        dismiss(animated: true)
     }
-    */
-
 }

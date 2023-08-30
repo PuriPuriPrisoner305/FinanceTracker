@@ -7,8 +7,11 @@
 
 import UIKit
 
-@IBDesignable
+protocol CustomSegementedControlDelegate {
+    func didTap(index: Int)
+}
 
+@IBDesignable
 class CustomSegmentedControl: UIView {
     @IBInspectable
     var borderWidth: CGFloat = 0 {
@@ -61,15 +64,15 @@ class CustomSegmentedControl: UIView {
     var selector: UIView!
     var buttons: [UIButton] = []
     
-    override func draw(_ rect: CGRect) {
-        layer.cornerRadius = 10
-    }
+    var delegate: CustomSegementedControlDelegate?
     
     func updateView() {
         // Clear View
         buttons.removeAll()
         subviews.forEach{ $0.removeFromSuperview() }
+        layer.cornerRadius = 10
         
+        // Setup Button
         let buttonTitles = commaSeparatedButtonTitles.components(separatedBy: ",")
         
         for title in buttonTitles {
@@ -88,14 +91,12 @@ class CustomSegmentedControl: UIView {
         selector.layer.cornerRadius = 10
         selector.backgroundColor = selectorColor
         addSubview(selector)
-        print("count: \(frame.width), \(CGFloat(buttonTitles.count))")
-        print("before: \(selectorWidth), \(selector.frame.width)")
         
         // Setup Stackview for buttons
         let buttonStackView = UIStackView(arrangedSubviews: buttons)
         buttonStackView.axis = .horizontal
         buttonStackView.alignment = .fill
-        buttonStackView.distribution = .fillProportionally
+        buttonStackView.distribution = .fillEqually
         addSubview(buttonStackView)
         
         // Setup constraints
@@ -114,12 +115,11 @@ class CustomSegmentedControl: UIView {
                     self.selector.frame.origin.x = selectorStartPosition
                 }
                 btn.setTitleColor(selectorTextColor, for: .normal)
+                delegate?.didTap(index: index)
             } else {
                 btn.setTitleColor(textColor, for: .normal)
             }
         }
-        print("after: \(selector.frame.width)")
-        print(frame.width)
     }
     
 }
