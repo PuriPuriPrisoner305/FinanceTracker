@@ -17,12 +17,17 @@
 		225633522A98F31400467180 /* NewTransactionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 225633512A98F31400467180 /* NewTransactionView.storyboard */; };
 		225633542A98F32E00467180 /* NewTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225633532A98F32E00467180 /* NewTransactionView.swift */; };
 		225633572A9B18FE00467180 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225633562A9B18FE00467180 /* CustomSegmentedControl.swift */; };
+		22677DE32AC05832003DAF01 /* DatePickerView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22677DE22AC05832003DAF01 /* DatePickerView.storyboard */; };
+		22677DE52AC05A22003DAF01 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22677DE42AC05A22003DAF01 /* DatePickerView.swift */; };
+		22677DE72AC05A45003DAF01 /* DatePickerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22677DE62AC05A45003DAF01 /* DatePickerRouter.swift */; };
 		22823CDE2A97ED4A0045C710 /* HomeScreenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22823CDD2A97ED4A0045C710 /* HomeScreenEntity.swift */; };
+		22AA63DE2AC29EA4003365B1 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22AA63DC2AC29EA4003365B1 /* DataModel.xcdatamodeld */; };
+		22AA63E52AC29FFF003365B1 /* Transactions+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AA63E32AC29FFF003365B1 /* Transactions+CoreDataClass.swift */; };
+		22AA63E62AC29FFF003365B1 /* Transactions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AA63E42AC29FFF003365B1 /* Transactions+CoreDataProperties.swift */; };
 		22D7A2552A8E2D7800CC5D26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2542A8E2D7800CC5D26 /* AppDelegate.swift */; };
 		22D7A2572A8E2D7800CC5D26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2562A8E2D7800CC5D26 /* SceneDelegate.swift */; };
 		22D7A2592A8E2D7800CC5D26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2582A8E2D7800CC5D26 /* ViewController.swift */; };
 		22D7A25C2A8E2D7800CC5D26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D7A25A2A8E2D7800CC5D26 /* Main.storyboard */; };
-		22D7A25F2A8E2D7800CC5D26 /* FinanceTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A25D2A8E2D7800CC5D26 /* FinanceTracker.xcdatamodeld */; };
 		22D7A2612A8E2D7A00CC5D26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D7A2602A8E2D7A00CC5D26 /* Assets.xcassets */; };
 		22D7A2642A8E2D7A00CC5D26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D7A2622A8E2D7A00CC5D26 /* LaunchScreen.storyboard */; };
 		22D7A26F2A8E2E7D00CC5D26 /* HomeScreenView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D7A26E2A8E2E7D00CC5D26 /* HomeScreenView.storyboard */; };
@@ -32,6 +37,13 @@
 		22D7A2792A8E411600CC5D26 /* HomeScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2782A8E411600CC5D26 /* HomeScreenRouter.swift */; };
 		22D7A27B2A93263100CC5D26 /* CustomTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D7A27A2A93263100CC5D26 /* CustomTabBarController.storyboard */; };
 		22D7A27D2A932D3A00CC5D26 /* CustomTabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A27C2A932D3A00CC5D26 /* CustomTabBarRouter.swift */; };
+		22EBECAD2AB9679B00CFDFFA /* CategoryView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22EBECAC2AB9679B00CFDFFA /* CategoryView.storyboard */; };
+		22EBECB12AB967D000CFDFFA /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EBECB02AB967D000CFDFFA /* CategoryView.swift */; };
+		22EBECB32AB96D2A00CFDFFA /* CategoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EBECB22AB96D2900CFDFFA /* CategoryRouter.swift */; };
+		22EBECBA2AB9762200CFDFFA /* CategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EBECB92AB9762200CFDFFA /* CategoryPresenter.swift */; };
+		22EBECBC2AB9767B00CFDFFA /* CategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EBECBB2AB9767B00CFDFFA /* CategoryEntity.swift */; };
+		22EBECBF2AB9803100CFDFFA /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EBECBD2AB9803100CFDFFA /* CategoryCell.swift */; };
+		22EBECC02AB9803100CFDFFA /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EBECBE2AB9803100CFDFFA /* CategoryCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,13 +56,18 @@
 		225633512A98F31400467180 /* NewTransactionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewTransactionView.storyboard; sourceTree = "<group>"; };
 		225633532A98F32E00467180 /* NewTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionView.swift; sourceTree = "<group>"; };
 		225633562A9B18FE00467180 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		22677DE22AC05832003DAF01 /* DatePickerView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DatePickerView.storyboard; sourceTree = "<group>"; };
+		22677DE42AC05A22003DAF01 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		22677DE62AC05A45003DAF01 /* DatePickerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerRouter.swift; sourceTree = "<group>"; };
 		22823CDD2A97ED4A0045C710 /* HomeScreenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenEntity.swift; sourceTree = "<group>"; };
+		22AA63DD2AC29EA4003365B1 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		22AA63E32AC29FFF003365B1 /* Transactions+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transactions+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		22AA63E42AC29FFF003365B1 /* Transactions+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transactions+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		22D7A2512A8E2D7800CC5D26 /* FinanceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D7A2542A8E2D7800CC5D26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22D7A2562A8E2D7800CC5D26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		22D7A2582A8E2D7800CC5D26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		22D7A25B2A8E2D7800CC5D26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		22D7A25E2A8E2D7800CC5D26 /* FinanceTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FinanceTracker.xcdatamodel; sourceTree = "<group>"; };
 		22D7A2602A8E2D7A00CC5D26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22D7A2632A8E2D7A00CC5D26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22D7A2652A8E2D7A00CC5D26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +78,13 @@
 		22D7A2782A8E411600CC5D26 /* HomeScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenRouter.swift; sourceTree = "<group>"; };
 		22D7A27A2A93263100CC5D26 /* CustomTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomTabBarController.storyboard; sourceTree = "<group>"; };
 		22D7A27C2A932D3A00CC5D26 /* CustomTabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarRouter.swift; sourceTree = "<group>"; };
+		22EBECAC2AB9679B00CFDFFA /* CategoryView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoryView.storyboard; sourceTree = "<group>"; };
+		22EBECB02AB967D000CFDFFA /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		22EBECB22AB96D2900CFDFFA /* CategoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRouter.swift; sourceTree = "<group>"; };
+		22EBECB92AB9762200CFDFFA /* CategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPresenter.swift; sourceTree = "<group>"; };
+		22EBECBB2AB9767B00CFDFFA /* CategoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEntity.swift; sourceTree = "<group>"; };
+		22EBECBD2AB9803100CFDFFA /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		22EBECBE2AB9803100CFDFFA /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		3E12132EA26C261760907367 /* Pods_FinanceTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A0E71BD0659D160750DF41 /* Pods-FinanceTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceTracker.debug.xcconfig"; path = "Target Support Files/Pods-FinanceTracker/Pods-FinanceTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		E50BAF6C7B96A81C0D76BFCC /* Pods-FinanceTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceTracker.release.xcconfig"; path = "Target Support Files/Pods-FinanceTracker/Pods-FinanceTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +130,33 @@
 			path = CustomSegmentedControl;
 			sourceTree = "<group>";
 		};
+		22677DE12AC0579A003DAF01 /* DatePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				22677DE22AC05832003DAF01 /* DatePickerView.storyboard */,
+				22677DE42AC05A22003DAF01 /* DatePickerView.swift */,
+				22677DE62AC05A45003DAF01 /* DatePickerRouter.swift */,
+			);
+			path = DatePickerView;
+			sourceTree = "<group>";
+		};
+		22AA63C52AC27AC8003365B1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				22AA63C92AC29341003365B1 /* Model */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		22AA63C92AC29341003365B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22AA63E32AC29FFF003365B1 /* Transactions+CoreDataClass.swift */,
+				22AA63E42AC29FFF003365B1 /* Transactions+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		22D7A2482A8E2D7800CC5D26 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				22D7A26B2A8E2D9000CC5D26 /* Modules */,
+				22AA63C52AC27AC8003365B1 /* Resources */,
 				22D7A2542A8E2D7800CC5D26 /* AppDelegate.swift */,
 				22D7A2562A8E2D7800CC5D26 /* SceneDelegate.swift */,
 				22D7A2582A8E2D7800CC5D26 /* ViewController.swift */,
@@ -135,7 +187,7 @@
 				22D7A2602A8E2D7A00CC5D26 /* Assets.xcassets */,
 				22D7A2622A8E2D7A00CC5D26 /* LaunchScreen.storyboard */,
 				22D7A2652A8E2D7A00CC5D26 /* Info.plist */,
-				22D7A25D2A8E2D7800CC5D26 /* FinanceTracker.xcdatamodeld */,
+				22AA63DC2AC29EA4003365B1 /* DataModel.xcdatamodeld */,
 			);
 			path = FinanceTracker;
 			sourceTree = "<group>";
@@ -143,6 +195,7 @@
 		22D7A26B2A8E2D9000CC5D26 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				22EBECAB2AB9678300CFDFFA /* CategoryView */,
 				225633502A98F2F500467180 /* NewTransaction */,
 				22D7A2732A8E30B100CC5D26 /* TabBar */,
 				22D7A2722A8E30A200CC5D26 /* Common */,
@@ -167,6 +220,7 @@
 		22D7A2722A8E30A200CC5D26 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				22677DE12AC0579A003DAF01 /* DatePickerView */,
 				225633552A9B184A00467180 /* CustomSegmentedControl */,
 			);
 			path = Common;
@@ -182,6 +236,28 @@
 				22D7A27A2A93263100CC5D26 /* CustomTabBarController.storyboard */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		22EBECAB2AB9678300CFDFFA /* CategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				22EBECB42AB9740F00CFDFFA /* CategoryCell */,
+				22EBECAC2AB9679B00CFDFFA /* CategoryView.storyboard */,
+				22EBECB02AB967D000CFDFFA /* CategoryView.swift */,
+				22EBECB92AB9762200CFDFFA /* CategoryPresenter.swift */,
+				22EBECBB2AB9767B00CFDFFA /* CategoryEntity.swift */,
+				22EBECB22AB96D2900CFDFFA /* CategoryRouter.swift */,
+			);
+			path = CategoryView;
+			sourceTree = "<group>";
+		};
+		22EBECB42AB9740F00CFDFFA /* CategoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				22EBECBD2AB9803100CFDFFA /* CategoryCell.swift */,
+				22EBECBE2AB9803100CFDFFA /* CategoryCell.xib */,
+			);
+			path = CategoryCell;
 			sourceTree = "<group>";
 		};
 		5BB71B653E7328A0B37B9651 /* Frameworks */ = {
@@ -268,6 +344,9 @@
 				22D7A2642A8E2D7A00CC5D26 /* LaunchScreen.storyboard in Resources */,
 				22D7A2612A8E2D7A00CC5D26 /* Assets.xcassets in Resources */,
 				22D7A25C2A8E2D7800CC5D26 /* Main.storyboard in Resources */,
+				22EBECC02AB9803100CFDFFA /* CategoryCell.xib in Resources */,
+				22EBECAD2AB9679B00CFDFFA /* CategoryView.storyboard in Resources */,
+				22677DE32AC05832003DAF01 /* DatePickerView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,22 +400,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				2203CDD52A9CBA3400832972 /* NewTransactionPresenter.swift in Sources */,
+				22677DE52AC05A22003DAF01 /* DatePickerView.swift in Sources */,
 				22D7A2592A8E2D7800CC5D26 /* ViewController.swift in Sources */,
+				22EBECBC2AB9767B00CFDFFA /* CategoryEntity.swift in Sources */,
 				2203CDD32A9CB9DF00832972 /* NewTransactionRouter.swift in Sources */,
 				2256334D2A98ACEA00467180 /* HomeScreenPresenter.swift in Sources */,
 				2256334A2A98A36100467180 /* TransactionCell.swift in Sources */,
 				22D7A2772A8E38C500CC5D26 /* CustomTabBarController.swift in Sources */,
 				22D7A2552A8E2D7800CC5D26 /* AppDelegate.swift in Sources */,
+				22AA63DE2AC29EA4003365B1 /* DataModel.xcdatamodeld in Sources */,
+				22EBECBA2AB9762200CFDFFA /* CategoryPresenter.swift in Sources */,
 				22D7A27D2A932D3A00CC5D26 /* CustomTabBarRouter.swift in Sources */,
+				22EBECB12AB967D000CFDFFA /* CategoryView.swift in Sources */,
 				22D7A2792A8E411600CC5D26 /* HomeScreenRouter.swift in Sources */,
 				225633572A9B18FE00467180 /* CustomSegmentedControl.swift in Sources */,
+				22677DE72AC05A45003DAF01 /* DatePickerRouter.swift in Sources */,
 				22823CDE2A97ED4A0045C710 /* HomeScreenEntity.swift in Sources */,
+				22EBECB32AB96D2A00CFDFFA /* CategoryRouter.swift in Sources */,
+				22AA63E62AC29FFF003365B1 /* Transactions+CoreDataProperties.swift in Sources */,
 				22D7A2712A8E2EF000CC5D26 /* HomeScreenView.swift in Sources */,
 				225633542A98F32E00467180 /* NewTransactionView.swift in Sources */,
 				22D7A2572A8E2D7800CC5D26 /* SceneDelegate.swift in Sources */,
+				22AA63E52AC29FFF003365B1 /* Transactions+CoreDataClass.swift in Sources */,
 				2203CDD72A9CBA7600832972 /* CustomTabBarPresenter.swift in Sources */,
 				22D7A2752A8E30DE00CC5D26 /* CustomTabBar.swift in Sources */,
-				22D7A25F2A8E2D7800CC5D26 /* FinanceTracker.xcdatamodeld in Sources */,
+				22EBECBF2AB9803100CFDFFA /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,11 +575,13 @@
 				DEVELOPMENT_TEAM = 8WWR82GRZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinanceTracker/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -520,11 +610,13 @@
 				DEVELOPMENT_TEAM = 8WWR82GRZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinanceTracker/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -566,13 +658,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		22D7A25D2A8E2D7800CC5D26 /* FinanceTracker.xcdatamodeld */ = {
+		22AA63DC2AC29EA4003365B1 /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				22D7A25E2A8E2D7800CC5D26 /* FinanceTracker.xcdatamodel */,
+				22AA63DD2AC29EA4003365B1 /* DataModel.xcdatamodel */,
 			);
-			currentVersion = 22D7A25E2A8E2D7800CC5D26 /* FinanceTracker.xcdatamodel */;
-			path = FinanceTracker.xcdatamodeld;
+			currentVersion = 22AA63DD2AC29EA4003365B1 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

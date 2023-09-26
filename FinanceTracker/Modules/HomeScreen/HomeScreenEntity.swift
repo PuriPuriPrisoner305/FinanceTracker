@@ -13,7 +13,9 @@ enum ChartDataType {
 }
 
 struct TransactionDetail: Codable {
-    let name, description: String
-    let amount: Int
-    let date: Date
+    var description: String
+    var categoryName, categoryImage: String
+    var amount: Double
+    var date: Date
+    var currency: String
 }

@@ -44,7 +44,8 @@ class CustomTabBarRouter {
     func navigateToNewTransaction(navigation: UINavigationController) {
         let view = NewTransactionRouter().showView()
         view.hidesBottomBarWhenPushed = true
-        navigation.present(view, animated: true)
+        let navigationController = UINavigationController(rootViewController: view)
+        navigation.present(navigationController, animated: true)
     }
 }
 

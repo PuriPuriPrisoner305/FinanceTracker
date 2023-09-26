@@ -48,10 +48,20 @@ class HomeScreenView: UIViewController {
     }
     
     func setup() {
+        setupData()
+        setupNotification()
         setupNavigation()
         setupChartView()
         setupTransactionView()
         setupCollectionView()
+    }
+    
+    func setupData() {
+        presenter.loadData()
+    }
+    
+    func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadCollection), name: Notification.Name("NewTransactionSave"), object: nil)
     }
     
     func setupNavigation() {
@@ -162,6 +172,11 @@ class HomeScreenView: UIViewController {
     func setupCollectionView() {
         transactionCollectionView.register(TransactionCell.nib, forCellWithReuseIdentifier: TransactionCell.identifier)
         
+    }
+    
+    @objc func reloadCollection() {
+        presenter.loadData()
+        transactionCollectionView.reloadData()
     }
 }
 

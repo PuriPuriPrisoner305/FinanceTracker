@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Date Picker View-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="DatePickerView" id="Y6W-OH-hqX" customClass="DatePickerView" customModule="FinanceTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IXo-RM-nS1" userLabel="Blur View">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndJ-iz-nQ4">
+                                <rect key="frame" x="30" y="249.33333333333334" width="333" height="378.66666666666663"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="p4P-oW-gjq">
+                                        <rect key="frame" x="15" y="14.999999999999972" width="303" height="348.66666666666663"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" systemColor="systemGreenColor"/>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="p4P-oW-gjq" secondAttribute="bottom" constant="15" id="3Ru-xV-cXi"/>
+                                    <constraint firstAttribute="trailing" secondItem="p4P-oW-gjq" secondAttribute="trailing" constant="15" id="PTg-N4-uCx"/>
+                                    <constraint firstItem="p4P-oW-gjq" firstAttribute="leading" secondItem="ndJ-iz-nQ4" secondAttribute="leading" constant="15" id="TUu-Ou-SXy"/>
+                                    <constraint firstItem="p4P-oW-gjq" firstAttribute="top" secondItem="ndJ-iz-nQ4" secondAttribute="top" constant="15" id="on5-RR-i9t"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oyw-zX-atE">
+                                <rect key="frame" x="136.66666666666666" y="658" width="119.99999999999997" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="PIy-PL-6cI"/>
+                                    <constraint firstAttribute="width" constant="120" id="oGj-Gf-kvt"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="21"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="juK-CF-Y8I"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IXo-RM-nS1" firstAttribute="top" secondItem="juK-CF-Y8I" secondAttribute="top" id="1Da-KD-HCP"/>
+                            <constraint firstItem="IXo-RM-nS1" firstAttribute="leading" secondItem="juK-CF-Y8I" secondAttribute="leading" id="5my-vv-xvJ"/>
+                            <constraint firstItem="ndJ-iz-nQ4" firstAttribute="centerY" secondItem="juK-CF-Y8I" secondAttribute="centerY" id="HuI-8Y-1cF"/>
+                            <constraint firstItem="ndJ-iz-nQ4" firstAttribute="bottom" secondItem="Oyw-zX-atE" secondAttribute="top" constant="-30" id="L1j-g8-51I"/>
+                            <constraint firstItem="juK-CF-Y8I" firstAttribute="trailing" secondItem="IXo-RM-nS1" secondAttribute="trailing" id="M9S-Ir-Nle"/>
+                            <constraint firstItem="ndJ-iz-nQ4" firstAttribute="leading" secondItem="juK-CF-Y8I" secondAttribute="leading" constant="30" id="QFA-Wm-w5b"/>
+                            <constraint firstItem="Oyw-zX-atE" firstAttribute="centerX" secondItem="juK-CF-Y8I" secondAttribute="centerX" id="k1y-GO-1wf"/>
+                            <constraint firstItem="juK-CF-Y8I" firstAttribute="bottom" secondItem="IXo-RM-nS1" secondAttribute="bottom" id="qJs-mw-xuf"/>
+                            <constraint firstItem="juK-CF-Y8I" firstAttribute="trailing" secondItem="ndJ-iz-nQ4" secondAttribute="trailing" constant="30" id="xqC-Yt-HxC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="blurView" destination="IXo-RM-nS1" id="67H-v7-PZu"/>
+                        <outlet property="datePicker" destination="p4P-oW-gjq" id="ugD-Zk-3XX"/>
+                        <outlet property="datePickerView" destination="ndJ-iz-nQ4" id="ro6-s8-3Fv"/>
+                        <outlet property="saveButton" destination="Oyw-zX-atE" id="QTc-bU-i61"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="43.511450381679388" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -16,4 +16,18 @@ class NewTransactionRouter {
         }
         return view
     }
+    
+    func navigateToCategoryView(navigation: UINavigationController, transType: ChartDataType, delegate: CategoryViewDelegate) {
+        let view = CategoryRouter().showView(transType: transType)
+        view.delegate = delegate
+        view.isModalInPresentation = true
+        navigation.pushViewController(view, animated: true)
+    }
+    
+    func navigateToDatePickerView(navigation: UINavigationController, date: Date, delegate: DatePickerViewDelegate) {
+        guard let view = DatePickerRouter().showView() else { return }
+        view.delegate = delegate
+        view.selectedDate = date
+        navigation.present(view, animated: true)
+    }
 }
