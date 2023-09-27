@@ -22,6 +22,7 @@ enum ChartDataType: String, Codable {
 }
 
 struct TransactionDetail: Codable {
+    var id: UUID
     var description: String
     var categoryName, categoryImage: String
     var amount: Double

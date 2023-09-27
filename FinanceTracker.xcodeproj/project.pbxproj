@@ -24,6 +24,10 @@
 		22AA63DE2AC29EA4003365B1 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22AA63DC2AC29EA4003365B1 /* DataModel.xcdatamodeld */; };
 		22AA63E52AC29FFF003365B1 /* Transactions+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AA63E32AC29FFF003365B1 /* Transactions+CoreDataClass.swift */; };
 		22AA63E62AC29FFF003365B1 /* Transactions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AA63E42AC29FFF003365B1 /* Transactions+CoreDataProperties.swift */; };
+		22AA63E92AC443FF003365B1 /* TransactionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AA63E82AC443FF003365B1 /* TransactionView.storyboard */; };
+		22AA63EB2AC44784003365B1 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AA63EA2AC44784003365B1 /* TransactionView.swift */; };
+		22AA63ED2AC4486D003365B1 /* TransactionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AA63EC2AC4486D003365B1 /* TransactionRouter.swift */; };
+		22AA63EF2AC44D8B003365B1 /* TransactionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AA63EE2AC44D8B003365B1 /* TransactionPresenter.swift */; };
 		22D7A2552A8E2D7800CC5D26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2542A8E2D7800CC5D26 /* AppDelegate.swift */; };
 		22D7A2572A8E2D7800CC5D26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2562A8E2D7800CC5D26 /* SceneDelegate.swift */; };
 		22D7A2592A8E2D7800CC5D26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2582A8E2D7800CC5D26 /* ViewController.swift */; };
@@ -63,6 +67,10 @@
 		22AA63DD2AC29EA4003365B1 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		22AA63E32AC29FFF003365B1 /* Transactions+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transactions+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		22AA63E42AC29FFF003365B1 /* Transactions+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transactions+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		22AA63E82AC443FF003365B1 /* TransactionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TransactionView.storyboard; sourceTree = "<group>"; };
+		22AA63EA2AC44784003365B1 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
+		22AA63EC2AC4486D003365B1 /* TransactionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRouter.swift; sourceTree = "<group>"; };
+		22AA63EE2AC44D8B003365B1 /* TransactionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionPresenter.swift; sourceTree = "<group>"; };
 		22D7A2512A8E2D7800CC5D26 /* FinanceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D7A2542A8E2D7800CC5D26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22D7A2562A8E2D7800CC5D26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +165,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		22AA63E72AC443EE003365B1 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				22AA63E82AC443FF003365B1 /* TransactionView.storyboard */,
+				22AA63EA2AC44784003365B1 /* TransactionView.swift */,
+				22AA63EE2AC44D8B003365B1 /* TransactionPresenter.swift */,
+				22AA63EC2AC4486D003365B1 /* TransactionRouter.swift */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
 		22D7A2482A8E2D7800CC5D26 = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +214,7 @@
 		22D7A26B2A8E2D9000CC5D26 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				22AA63E72AC443EE003365B1 /* Transaction */,
 				22EBECAB2AB9678300CFDFFA /* CategoryView */,
 				225633502A98F2F500467180 /* NewTransaction */,
 				22D7A2732A8E30B100CC5D26 /* TabBar */,
@@ -341,6 +361,7 @@
 				22D7A26F2A8E2E7D00CC5D26 /* HomeScreenView.storyboard in Resources */,
 				225633522A98F31400467180 /* NewTransactionView.storyboard in Resources */,
 				2256334B2A98A36100467180 /* TransactionCell.xib in Resources */,
+				22AA63E92AC443FF003365B1 /* TransactionView.storyboard in Resources */,
 				22D7A2642A8E2D7A00CC5D26 /* LaunchScreen.storyboard in Resources */,
 				22D7A2612A8E2D7A00CC5D26 /* Assets.xcassets in Resources */,
 				22D7A25C2A8E2D7800CC5D26 /* Main.storyboard in Resources */,
@@ -404,9 +425,12 @@
 				22D7A2592A8E2D7800CC5D26 /* ViewController.swift in Sources */,
 				22EBECBC2AB9767B00CFDFFA /* CategoryEntity.swift in Sources */,
 				2203CDD32A9CB9DF00832972 /* NewTransactionRouter.swift in Sources */,
+				22AA63ED2AC4486D003365B1 /* TransactionRouter.swift in Sources */,
 				2256334D2A98ACEA00467180 /* HomeScreenPresenter.swift in Sources */,
 				2256334A2A98A36100467180 /* TransactionCell.swift in Sources */,
 				22D7A2772A8E38C500CC5D26 /* CustomTabBarController.swift in Sources */,
+				22AA63EB2AC44784003365B1 /* TransactionView.swift in Sources */,
+				22AA63EF2AC44D8B003365B1 /* TransactionPresenter.swift in Sources */,
 				22D7A2552A8E2D7800CC5D26 /* AppDelegate.swift in Sources */,
 				22AA63DE2AC29EA4003365B1 /* DataModel.xcdatamodeld in Sources */,
 				22EBECBA2AB9762200CFDFFA /* CategoryPresenter.swift in Sources */,

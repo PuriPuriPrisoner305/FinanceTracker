@@ -33,22 +33,44 @@ class TransactionCell: UICollectionViewCell {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "h:mm a"
-        self.timeLabel.text = formatter.string(from: data.date)
+        self.timeLabel.text = setupTransactionTime(date: data.date)
     }
     
     func setupAmount(data: TransactionDetail) -> NSAttributedString {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.locale = Locale(identifier: "en_ID")
+        formatter.groupingSeparator = ","
         
         if let formattedNumber = formatter.string(from: NSNumber(value: data.amount)) {
+            let type = data.transType == .expense ? "-" : "+"
             let attributedText = NSAttributedString(
-                string: "\(data.currency). \(formattedNumber)",
+                string: "\(type)\(data.currency). \(formattedNumber)",
                 attributes: [NSAttributedString.Key.foregroundColor:  data.transType == .expense ? UIColor.systemRed : UIColor.systemGreen])
             
             return attributedText
         }
-        return NSAttributedString(string: "Rp 0")
+        return NSAttributedString(string: "Rp. 0")
+    }
+    
+    func setupTransactionTime(date: Date) -> String {
+        let calendar = Calendar.current
+        let dateComponents = calendar.dateComponents([.day], from: date, to: Date())
+        
+        let dateFormatter = DateFormatter()
+
+        if let day = dateComponents.day {
+            print(day, date)
+            if day < 1 {
+                dateFormatter.dateFormat = "h:mm a"
+            } else if day == 1 {
+                return "Yesterday"
+            } else {
+                dateFormatter.dateFormat = "MMM d"
+            }
+            return dateFormatter.string(from: date)
+        }
+        return ""
     }
     
 }

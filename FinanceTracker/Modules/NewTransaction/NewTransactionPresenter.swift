@@ -27,6 +27,7 @@ class NewTransactionPresenter {
     func saveData() {
         guard let context = context else { return }
         if let newTrans = NSEntityDescription.insertNewObject(forEntityName: "Transactions", into: context) as? Transactions {
+            newTrans.id = UUID()
             newTrans.categoryName = selectedCategory.name
             newTrans.categoryImage = selectedCategory.image
             let amount = transAmount.filter("0123456789.".contains)

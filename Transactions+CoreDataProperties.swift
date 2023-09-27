@@ -15,7 +15,7 @@ extension Transactions {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Transactions> {
         return NSFetchRequest<Transactions>(entityName: "Transactions")
     }
-
+    @NSManaged public var id: UUID
     @NSManaged public var categoryName: String
     @NSManaged public var categoryImage: String
     @NSManaged public var transDesc: String

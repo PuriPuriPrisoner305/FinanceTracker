@@ -1,19 +1,13 @@
 //
-//  NewTransactionView.swift
+//  TransactionView.swift
 //  FinanceTracker
 //
-//  Created by ardy on 25/08/23.
+//  Created by ardy on 27/09/23.
 //
 
 import UIKit
-import CoreData
 
-class NewTransactionView: UIViewController {
-    @IBOutlet weak var segmentedControlView: CustomSegmentedControl!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var closeButton: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
-    
+class TransactionView: UIViewController {
     // Amount View
     @IBOutlet weak var amountView: UIView!
     @IBOutlet weak var amountCurrencyLabel: UILabel!
@@ -31,32 +25,54 @@ class NewTransactionView: UIViewController {
     // Date View
     @IBOutlet weak var datePickerView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
-        
-    var presenter = NewTransactionPresenter()
+    
+    @IBOutlet weak var saveButton: UIButton!
+    
+    var presenter: TransactionPresenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
     
-    func setup() {
-        setupCoreData()
-        setupAction()
-        setupView()
-        
-        setupCategoryData(category: presenter.selectedCategory)
-        setupDate(date: Date())
-        
-        amountView.layer.cornerRadius = amountView.frame.height / 2
-        closeButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
-        amountTextfield.delegate = self
-        segmentedControlView.delegate = self
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
     }
     
-    @objc func dismissView() {
-        dismiss(animated: true)
+    func setup() {
+        setupView()
+        setupAction()
+        setupNavigation()
+        setupAmountTextfield()
+        setupCategoryData(data: presenter?.transactionDetail)
+        setupDescriptionTextfield()
+        setupDate()
     }
+    
+    func setupNavigation() {
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.tintColor = UIColor.black
+    }
+    
+    func setupView() {
+        amountView.layer.cornerRadius = 20
+        categoryView.layer.cornerRadius = 20
+        descriptionView.layer.cornerRadius = 20
+        datePickerView.layer.cornerRadius = 20
         
+        amountView.layer.borderWidth = 4
+        amountView.layer.borderColor = UIColor.black.cgColor
+        categoryView.layer.borderWidth = 4
+        categoryView.layer.borderColor = UIColor.black.cgColor
+        descriptionView.layer.borderWidth = 4
+        descriptionView.layer.borderColor = UIColor.black.cgColor
+        datePickerView.layer.borderWidth = 4
+        datePickerView.layer.borderColor = UIColor.black.cgColor
+        
+        saveButton.layer.cornerRadius = saveButton.frame.height / 2
+        saveButton.backgroundColor = .black
+    }
+    
     func setupAction() {
         // Category View
         let categoryTapGesture = UITapGestureRecognizer(target: self, action: #selector(categoryViewTapped))
@@ -82,23 +98,24 @@ class NewTransactionView: UIViewController {
         saveButton.addTarget(self, action: #selector(saveData), for: .touchUpInside)
     }
     
-    func setupView() {
-        categoryView.layer.cornerRadius = 20
-        descriptionView.layer.cornerRadius = 20
-        datePickerView.layer.cornerRadius = 20
+    func setupAmountTextfield() {
+        guard let presenter = presenter else { return }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.locale = Locale(identifier: "en_ID")
+        formatter.groupingSeparator = ","
         
-        // Save Button
-        saveButton.layer.cornerRadius = saveButton.frame.height / 2
+        if let formattedNumber = formatter.string(from: NSNumber(value: presenter.transactionDetail.amount)) {
+            amountTextfield.text = formattedNumber
+        }
     }
     
-    func setupCategoryData(category: CategoryData) {
-        presenter.selectedCategory = category
-        categoryIcon.image = UIImage(systemName: category.image)
-        categoryLabel.text = category.name
+    func setupDescriptionTextfield() {
+        descriptionTextField.text = presenter?.transactionDetail.description
     }
     
-    func setupDate(date: Date) {
-        presenter.transactionTime = date
+    func setupDate() {
+        guard let date = presenter?.transactionDetail.date else { return }
         let calendar = Calendar.current
         let dateComponents = calendar.dateComponents([.day], from: date, to: Date())
         
@@ -113,16 +130,19 @@ class NewTransactionView: UIViewController {
             dateLabel.text = dateFormatter.string(from: date)
         }
     }
-    
-    func setupSegmentedControl() {
-        let type = presenter.transType
-        self.presenter.selectedCategory = type == .expense ? CategoryEntity.expenseCategories[0] : CategoryEntity.incomeCategories[0]
-        self.titleLabel.text = type == .expense ? "Add Expense" : "Add Income"
-        self.setupCategoryData(category: self.presenter.selectedCategory)
-    }
-    
-    func setupCoreData() {
-        presenter.setupCoreData()
+
+    func setupCategoryData(data: TransactionDetail? = nil, category: CategoryData? = nil) {
+        if category != nil {
+            presenter?.transactionDetail.categoryName = category!.name
+            presenter?.transactionDetail.categoryImage = category!.image
+            categoryIcon.image = UIImage(systemName: category!.image)
+            categoryLabel.text = category!.name
+            return
+        } else {
+            guard let data = data else { return }
+            categoryIcon.image = UIImage(systemName: data.categoryImage)
+            categoryLabel.text = data.categoryName
+        }
     }
     
     func setupEmptyAmount(isEmpty: Bool) {
@@ -168,7 +188,11 @@ class NewTransactionView: UIViewController {
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        presenter.transDesc = textField.text ?? ""
+        presenter?.transactionDetail.description = textField.text ?? ""
+    }
+    
+    @objc func dismissView() {
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func saveData() {
@@ -177,25 +201,47 @@ class NewTransactionView: UIViewController {
             setupEmptyAmount(isEmpty: true)
             return
         }
-        presenter.saveData()
-        dismissView()
+        presenter?.saveData()
         NotificationCenter.default.post(name: Notification.Name("NewTransactionSave"), object: nil)
+        dismissView()
     }
     
 }
 
-extension NewTransactionView: UITextFieldDelegate {
+// MARK: Navigation
+extension TransactionView {
+    @objc func categoryViewTapped() {
+        navigateToCategoryView()
+    }
+    
+    @objc func dateViewTapped() {
+        navigateToDatePickerView()
+    }
+    
+    func navigateToCategoryView() {
+        guard let navigation = navigationController,
+              let presenter = presenter
+        else { return }
+        presenter.navigateToCategoryView(navigation: navigation, delegate: self)
+    }
+    
+    func navigateToDatePickerView() {
+        guard let navigation = navigationController,
+              let presenter = presenter
+        else { return }
+        presenter.navigateToDatePickerView(navigation: navigation, delegate: self)
+    }
+    
+}
+
+extension TransactionView: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        setupEmptyAmount(isEmpty: false)
         formatTextField(string: string, textField: textField, range: range)
-        presenter.transAmount = textField.text ?? ""
+        let amount = (textField.text ?? "").filter("0123456789.".contains)
+        presenter?.transactionDetail.amount = Double(amount) ?? 0
         return false
+
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-    }
-    
     func formatTextField(string: String, textField: UITextField, range: NSRange) {
         let allowedCharacters = "0123456789,"
         let cs = NSCharacterSet(charactersIn: allowedCharacters).inverted
@@ -223,52 +269,19 @@ extension NewTransactionView: UITextFieldDelegate {
             textField.text = diffFormat
         }
     }
-
-}
-
-// MARK: Navigation
-extension NewTransactionView {
-    @objc func categoryViewTapped() {
-        navigateToCategoryView()
-    }
-    
-    @objc func dateViewTapped() {
-        navigateToDatePickerView()
-    }
-    
-    func navigateToCategoryView() {
-        guard let navigation = navigationController else { return }
-        presenter.navigateToCategoryView(navigation: navigation, delegate: self)
-    }
-    
-    func navigateToDatePickerView() {
-        guard let navigation = navigationController else { return }
-        presenter.navigateToDatePickerView(navigation: navigation, delegate: self)
-    }
-    
-}
-
-// MARK: Custom Segment Delegation
-extension NewTransactionView: CustomSegementedControlDelegate {
-    func didTap(index: Int) {
-        presenter.transType = index == 0 ? .expense : .income
-        setupSegmentedControl()
-    }
-    
 }
 
 // MARK: Category Delegation
-extension NewTransactionView: CategoryViewDelegate {
+extension TransactionView: CategoryViewDelegate {
     func didTap(category: CategoryData, transType: ChartDataType) {
-        presenter.transType = transType
-        segmentedControlView.setSelectedButton(index: transType == .expense ? 0 : 1)
         setupCategoryData(category: category)
     }
 }
 
 // MARK: Date Picker Delegation
-extension NewTransactionView: DatePickerViewDelegate {
+extension TransactionView: DatePickerViewDelegate {
     func didTap(date: Date) {
-        setupDate(date: date)
+        presenter?.transactionDetail.date = date
+        setupDate()
     }
 }

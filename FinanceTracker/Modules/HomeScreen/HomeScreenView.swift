@@ -202,6 +202,11 @@ extension HomeScreenView: UICollectionViewDelegate, UICollectionViewDataSource, 
         let size = CGSize(width: collectionView.frame.width, height: 80)
         return size
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let navigation = navigationController else { return }
+        presenter.navigateToEditTransaction(navigation: navigation, index: indexPath.row)
+    }
 }
 
 extension HomeScreenView: UIScrollViewDelegate {

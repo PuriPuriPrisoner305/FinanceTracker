@@ -18,5 +18,10 @@ class HomeScreenRouter {
         return view
     }
     
+    func navigateToEditTransaction(navigation: UINavigationController, data: (TransactionDetail, CategoryData)) {
+        let view = TransactionRouter().showView(data: data.0, category: data.1)
+        view.hidesBottomBarWhenPushed = true
+        navigation.pushViewController(view, animated: true)
+    }
     
 }

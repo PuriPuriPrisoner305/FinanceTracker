@@ -20,6 +20,7 @@ class CategoryView: UIViewController {
     var delegate: CategoryViewDelegate?
     
     var presenter: CategoryPresenter?
+    var isFromEditing: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,7 @@ class CategoryView: UIViewController {
         customSegment.setSelectedButton(index: transType == .expense ? 0 : 1)
         self.navigationController?.navigationBar.tintColor = .white
         setupTableViewView()
+        setupFromEditTransaction()
     }
     
     func setupTableViewView() {
@@ -42,6 +44,10 @@ class CategoryView: UIViewController {
         categoryTableView.dataSource = self
         categoryTableView.register(CategoryCell.nib, forCellReuseIdentifier: CategoryCell.identifier)
         categoryTableView.layer.cornerRadius = 16
+    }
+    
+    func setupFromEditTransaction() {
+        customSegment.isHidden = isFromEditing
     }
 }
 
