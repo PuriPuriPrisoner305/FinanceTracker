@@ -29,21 +29,26 @@ class TransactionCell: UICollectionViewCell {
         self.iconImageView.image = UIImage(systemName: data.categoryImage)
         self.nameLabel.text = data.categoryName
         self.descriptionLabel.text = data.description
-        self.amountLabel.text = "\(data.currency) \(setupCurrency(amount: data.amount))"
+        self.amountLabel.attributedText = setupAmount(data: data)
         
         let formatter = DateFormatter()
         formatter.dateFormat = "h:mm a"
         self.timeLabel.text = formatter.string(from: data.date)
     }
     
-    func setupCurrency(amount: Double) -> String {
+    func setupAmount(data: TransactionDetail) -> NSAttributedString {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.locale = Locale(identifier: "en_ID")
         
-        if let formattedNumber = formatter.string(from: NSNumber(value: amount)) {
-            return formattedNumber
+        if let formattedNumber = formatter.string(from: NSNumber(value: data.amount)) {
+            let attributedText = NSAttributedString(
+                string: "\(data.currency). \(formattedNumber)",
+                attributes: [NSAttributedString.Key.foregroundColor:  data.transType == .expense ? UIColor.systemRed : UIColor.systemGreen])
+            
+            return attributedText
         }
-        return "0"
+        return NSAttributedString(string: "Rp 0")
     }
+    
 }

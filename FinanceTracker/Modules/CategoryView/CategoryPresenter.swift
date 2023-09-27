@@ -12,9 +12,9 @@ class CategoryPresenter {
     var categories: [CategoryData]
     var transType: ChartDataType
     
-    init(transType: ChartDataType = .expense) {
+    init(transType: ChartDataType) {
         self.categories = transType == .expense ? CategoryEntity.expenseCategories : CategoryEntity.incomeCategories
-        self.transType = .expense
+        self.transType = transType
     }
     
     func setupCategoryData() {

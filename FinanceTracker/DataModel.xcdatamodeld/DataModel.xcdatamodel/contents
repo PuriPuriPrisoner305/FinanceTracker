@@ -7,5 +7,6 @@
         <attribute name="transCurrency" optional="YES" attributeType="String"/>
         <attribute name="transDesc" optional="YES" attributeType="String"/>
         <attribute name="transTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="transType" optional="YES" attributeType="String"/>
     </entity>
 </model>

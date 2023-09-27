@@ -10,7 +10,7 @@ import CoreData
 
 class HomeScreenPresenter {
     var transactionData: [TransactionDetail] = [
-        TransactionDetail(description: "John's Card", categoryName: "Spotify", categoryImage: "music.note.tv.fill", amount: 5000, date: Date(), currency: "Rp")
+        TransactionDetail(description: "John's Card", categoryName: "Spotify", categoryImage: "music.note.tv.fill", amount: 5000, date: Date(), currency: "Rp", transType: .expense)
     ]
     
     var context: NSManagedObjectContext?
@@ -33,7 +33,8 @@ class HomeScreenPresenter {
                                               categoryImage: entity.categoryImage,
                                               amount: entity.transAmount,
                                               date: entity.transTime,
-                                              currency: entity.transCurrency)
+                                              currency: entity.transCurrency,
+                                              transType: ChartDataType(rawValue: entity.transType) ?? .expense)
                 transactionData.insert(trans, at: 0)            }
         } catch {
             print(error)

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CategoryViewDelegate {
-    func didTap(category: CategoryData)
+    func didTap(category: CategoryData, transType: ChartDataType)
 }
 
 class CategoryView: UIViewController {
@@ -26,8 +26,13 @@ class CategoryView: UIViewController {
         setup()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+    }
+    
     func setup() {
         customSegment.delegate = self
+        let transType = presenter?.transType ?? .expense
+        customSegment.setSelectedButton(index: transType == .expense ? 0 : 1)
         self.navigationController?.navigationBar.tintColor = .white
         setupTableViewView()
     }
@@ -60,7 +65,7 @@ extension CategoryView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let presenter = presenter else { return }
-        delegate?.didTap(category: presenter.categories[indexPath.row])
+        delegate?.didTap(category: presenter.categories[indexPath.row], transType: presenter.transType)
         self.navigationController?.popViewController(animated: true)
     }
     

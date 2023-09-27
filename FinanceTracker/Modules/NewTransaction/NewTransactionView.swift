@@ -126,6 +126,24 @@ class NewTransactionView: UIViewController {
         presenter.setupCoreData()
     }
     
+    func setupEmptyAmount(isEmpty: Bool) {
+        if isEmpty {
+            amountView.layer.borderWidth = 1
+            amountView.layer.borderColor = UIColor.red.cgColor
+            amountTextfield.attributedPlaceholder = NSAttributedString(
+                string: "Please fill in amount",
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor.red.withAlphaComponent(0.8)]
+            )
+            amountTextfield.becomeFirstResponder()
+        } else {
+            amountView.layer.borderWidth = 0
+            amountTextfield.attributedPlaceholder = NSAttributedString(
+                string: "0",
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray]
+            )
+        }
+    }
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         if !descriptionTextField.isFirstResponder { return }
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
@@ -152,10 +170,14 @@ class NewTransactionView: UIViewController {
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         presenter.transDesc = textField.text ?? ""
-        print(presenter.transAmount)
     }
     
     @objc func saveData() {
+        let amount = amountTextfield.text ?? ""
+        if amount.isEmpty {
+            setupEmptyAmount(isEmpty: true)
+            return
+        }
         presenter.saveData()
         dismissView()
         NotificationCenter.default.post(name: Notification.Name("NewTransactionSave"), object: nil)
@@ -165,6 +187,7 @@ class NewTransactionView: UIViewController {
 
 extension NewTransactionView: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        setupEmptyAmount(isEmpty: false)
         formatTextField(string: string, textField: textField, range: range)
         presenter.transAmount = textField.text ?? ""
         return false
@@ -237,7 +260,9 @@ extension NewTransactionView: CustomSegementedControlDelegate {
 
 // MARK: Category Delegation
 extension NewTransactionView: CategoryViewDelegate {
-    func didTap(category: CategoryData) {
+    func didTap(category: CategoryData, transType: ChartDataType) {
+        presenter.transType = transType
+        segmentedControlView.setSelectedButton(index: transType == .expense ? 0 : 1)
         setupCategoryData(category: category)
     }
 }

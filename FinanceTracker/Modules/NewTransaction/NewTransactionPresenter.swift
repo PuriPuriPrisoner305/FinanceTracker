@@ -34,12 +34,11 @@ class NewTransactionPresenter {
             newTrans.transDesc = transDesc
             newTrans.transCurrency = "Rp"
             newTrans.transTime = transactionTime
-            
+            newTrans.transType = transType.value
         }
 
         do {
             try context.save()
-            print("success")
         } catch {
             print(error)
         }

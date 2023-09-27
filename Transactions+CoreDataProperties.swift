@@ -22,6 +22,7 @@ extension Transactions {
     @NSManaged public var transTime: Date
     @NSManaged public var transCurrency: String
     @NSManaged public var transAmount: Double
+    @NSManaged public var transType: String
 
 }
 

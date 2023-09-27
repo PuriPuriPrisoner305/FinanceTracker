@@ -7,9 +7,18 @@
 
 import UIKit
 
-enum ChartDataType {
+enum ChartDataType: String, Codable {
     case income
     case expense
+    
+    var value: String {
+        switch self {
+        case .expense:
+            return "expense"
+        default:
+            return "income"
+        }
+    }
 }
 
 struct TransactionDetail: Codable {
@@ -18,4 +27,5 @@ struct TransactionDetail: Codable {
     var amount: Double
     var date: Date
     var currency: String
+    var transType: ChartDataType
 }

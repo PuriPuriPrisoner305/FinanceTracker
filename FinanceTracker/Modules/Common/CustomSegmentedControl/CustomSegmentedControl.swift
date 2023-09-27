@@ -122,4 +122,8 @@ class CustomSegmentedControl: UIView {
         }
     }
     
+    func setSelectedButton(index: Int) {
+        buttons[index].sendActions(for: .touchUpInside)
+    }
+    
 }
