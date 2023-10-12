@@ -29,8 +29,8 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$5,000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zv8-Ul-ufA" userLabel="Balance Amount">
-                                                <rect key="frame" x="30" y="19.333333333333332" width="142.33333333333334" height="32.333333333333343"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 5,000.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zv8-Ul-ufA" userLabel="Balance Amount">
+                                                <rect key="frame" x="30" y="19.333333333333332" width="189" height="32.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -42,20 +42,20 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="60"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="income" translatesAutoresizingMaskIntoConstraints="NO" id="7ul-Rh-ON5">
-                                                                <rect key="frame" x="30" y="10" width="40" height="40"/>
+                                                                <rect key="frame" x="15" y="14.999999999999986" width="30" height="30"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="40" id="Mcl-N1-qcJ"/>
-                                                                    <constraint firstAttribute="height" constant="40" id="Rog-Kj-mwl"/>
+                                                                    <constraint firstAttribute="width" constant="30" id="Mcl-N1-qcJ"/>
+                                                                    <constraint firstAttribute="height" constant="30" id="Rog-Kj-mwl"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Incomes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Di-xX-sA3" userLabel="Income Title">
-                                                                <rect key="frame" x="85" y="10" width="78.666666666666686" height="14.333333333333336"/>
+                                                                <rect key="frame" x="60.000000000000007" y="10" width="78.666666666666686" height="14.333333333333336"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2,500.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENa-VK-GCw" userLabel="Income Amount">
-                                                                <rect key="frame" x="85" y="30.666666666666671" width="79.333333333333314" height="19.333333333333329"/>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2,500.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="ENa-VK-GCw" userLabel="Income Amount">
+                                                                <rect key="frame" x="59.999999999999993" y="29.333333333333329" width="79.333333333333314" height="19.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -65,30 +65,30 @@
                                                         <constraints>
                                                             <constraint firstItem="ENa-VK-GCw" firstAttribute="leading" secondItem="2Di-xX-sA3" secondAttribute="leading" id="88P-43-ovM"/>
                                                             <constraint firstItem="7ul-Rh-ON5" firstAttribute="centerY" secondItem="2ec-OG-27L" secondAttribute="centerY" id="Ffi-yO-jVB"/>
-                                                            <constraint firstItem="ENa-VK-GCw" firstAttribute="bottom" secondItem="7ul-Rh-ON5" secondAttribute="bottom" id="LV5-vw-xoa"/>
+                                                            <constraint firstItem="ENa-VK-GCw" firstAttribute="top" secondItem="2Di-xX-sA3" secondAttribute="bottom" constant="5" id="ReJ-xi-b1a"/>
                                                             <constraint firstItem="2Di-xX-sA3" firstAttribute="leading" secondItem="7ul-Rh-ON5" secondAttribute="trailing" constant="15" id="a9R-jQ-m9y"/>
-                                                            <constraint firstItem="2Di-xX-sA3" firstAttribute="top" secondItem="7ul-Rh-ON5" secondAttribute="top" id="laj-1Q-nBh"/>
-                                                            <constraint firstItem="7ul-Rh-ON5" firstAttribute="leading" secondItem="2ec-OG-27L" secondAttribute="leading" constant="30" id="s91-FX-DWe"/>
+                                                            <constraint firstItem="2Di-xX-sA3" firstAttribute="top" secondItem="2ec-OG-27L" secondAttribute="top" constant="10" id="nIn-Qc-xZf"/>
+                                                            <constraint firstItem="7ul-Rh-ON5" firstAttribute="leading" secondItem="2ec-OG-27L" secondAttribute="leading" constant="15" id="s91-FX-DWe"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YoT-Oj-cIE" userLabel="Expense">
                                                         <rect key="frame" x="196.66666666666663" y="0.0" width="196.33333333333337" height="60"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="expense" translatesAutoresizingMaskIntoConstraints="NO" id="vUO-Yi-MmA" userLabel="Expense">
-                                                                <rect key="frame" x="15" y="10" width="40" height="40"/>
+                                                                <rect key="frame" x="15" y="14.999999999999986" width="30" height="30"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="40" id="eDd-D8-Aok"/>
-                                                                    <constraint firstAttribute="height" constant="40" id="t5M-W7-eix"/>
+                                                                    <constraint firstAttribute="width" constant="30" id="eDd-D8-Aok"/>
+                                                                    <constraint firstAttribute="height" constant="30" id="t5M-W7-eix"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Expenses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zio-Fk-TfO" userLabel="Expense Title">
-                                                                <rect key="frame" x="70.000000000000028" y="10" width="85" height="14.333333333333336"/>
+                                                                <rect key="frame" x="60.000000000000028" y="10" width="85" height="14.333333333333336"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2,500.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xv0-JY-zQW" userLabel="Expense Amount">
-                                                                <rect key="frame" x="70.000000000000028" y="30.666666666666671" width="79.333333333333343" height="19.333333333333329"/>
+                                                                <rect key="frame" x="60.000000000000021" y="29.333333333333329" width="79.333333333333314" height="19.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -97,8 +97,8 @@
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="Xv0-JY-zQW" firstAttribute="leading" secondItem="zio-Fk-TfO" secondAttribute="leading" id="09u-zq-Ibx"/>
-                                                            <constraint firstItem="zio-Fk-TfO" firstAttribute="top" secondItem="vUO-Yi-MmA" secondAttribute="top" id="FhN-zL-kgD"/>
-                                                            <constraint firstItem="Xv0-JY-zQW" firstAttribute="bottom" secondItem="vUO-Yi-MmA" secondAttribute="bottom" id="bRY-R4-3wW"/>
+                                                            <constraint firstItem="Xv0-JY-zQW" firstAttribute="top" secondItem="zio-Fk-TfO" secondAttribute="bottom" constant="5" id="YJg-21-inM"/>
+                                                            <constraint firstItem="zio-Fk-TfO" firstAttribute="top" secondItem="YoT-Oj-cIE" secondAttribute="top" constant="10" id="Zin-Pd-O1Z"/>
                                                             <constraint firstItem="vUO-Yi-MmA" firstAttribute="leading" secondItem="YoT-Oj-cIE" secondAttribute="leading" constant="15" id="gOt-io-KKS"/>
                                                             <constraint firstItem="zio-Fk-TfO" firstAttribute="leading" secondItem="vUO-Yi-MmA" secondAttribute="trailing" constant="15" id="i9C-Da-IQJ"/>
                                                             <constraint firstItem="vUO-Yi-MmA" firstAttribute="centerY" secondItem="YoT-Oj-cIE" secondAttribute="centerY" id="vQp-Sy-gnQ"/>

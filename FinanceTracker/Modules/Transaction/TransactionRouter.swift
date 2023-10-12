@@ -19,6 +19,12 @@ class TransactionRouter {
         return view
     }
     
+    func navigateToPopupDelete(navigation: UINavigationController, delegate: PopupDeleteDelegate) {
+        guard let view = PopupDelete.instance() else { return }
+        view.delegate = delegate
+        navigation.present(view, animated: true)
+    }
+    
     func navigateToCategoryView(navigation: UINavigationController, transType: ChartDataType, delegate: CategoryViewDelegate) {
         let view = CategoryRouter().showView(transType: transType)
         view.delegate = delegate

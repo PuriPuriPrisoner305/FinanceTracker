@@ -21,6 +21,21 @@ class TransactionPresenter {
         router = TransactionRouter()
     }
     
+    func deleteData() {
+        let fetchRequest: NSFetchRequest<Transactions> = Transactions.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", "\(transactionDetail.id)")
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            if let trans = results.first {
+                context.delete(trans)
+                try context.save()
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
     func saveData() {
         let fetchRequest: NSFetchRequest<Transactions> = Transactions.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", "\(transactionDetail.id)")
@@ -50,5 +65,9 @@ class TransactionPresenter {
     
     func navigateToDatePickerView(navigation: UINavigationController, delegate: DatePickerViewDelegate) {
         router.navigateToDatePickerView(navigation: navigation, date: transactionDetail.date, delegate: delegate)
+    }
+    
+    func showPopupDelete(navigation: UINavigationController, delegate: PopupDeleteDelegate) {
+        router.navigateToPopupDelete(navigation: navigation, delegate: delegate)
     }
 }

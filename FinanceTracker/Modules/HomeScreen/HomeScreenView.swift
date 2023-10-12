@@ -54,10 +54,16 @@ class HomeScreenView: UIViewController {
         setupChartView()
         setupTransactionView()
         setupCollectionView()
+        setupTransactionData()
     }
     
     func setupData() {
         presenter.loadData()
+    }
+    
+    func setupTransactionData() {
+        totalIncomeLabel.text = "Rp. \(presenter.setupTotalIncome())"
+        totalExpenseLabel.text = "Rp. \(presenter.setupTotalExpense())"
     }
     
     func setupNotification() {

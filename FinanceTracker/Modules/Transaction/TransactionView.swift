@@ -26,6 +26,7 @@ class TransactionView: UIViewController {
     @IBOutlet weak var datePickerView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     
     var presenter: TransactionPresenter?
@@ -69,6 +70,15 @@ class TransactionView: UIViewController {
         datePickerView.layer.borderWidth = 4
         datePickerView.layer.borderColor = UIColor.black.cgColor
         
+        deleteButton.layer.cornerRadius = deleteButton.frame.height / 2
+        deleteButton.layer.borderWidth = 4
+        deleteButton.layer.borderColor = UIColor.black.cgColor
+        let attribute = NSAttributedString(
+            string: "Delete",
+            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20, weight: .bold),
+                         NSAttributedString.Key.foregroundColor : UIColor.black]
+        )
+        deleteButton.setAttributedTitle(attribute, for: .normal)
         saveButton.layer.cornerRadius = saveButton.frame.height / 2
         saveButton.backgroundColor = .black
     }
@@ -93,7 +103,8 @@ class TransactionView: UIViewController {
         
         // Description Textfield
         descriptionTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        
+        // Delete Button
+        deleteButton.addTarget(self, action: #selector(deleteData), for: .touchUpInside)
         // Save Button
         saveButton.addTarget(self, action: #selector(saveData), for: .touchUpInside)
     }
@@ -193,6 +204,12 @@ class TransactionView: UIViewController {
     
     @objc func dismissView() {
         navigationController?.popViewController(animated: true)
+        NotificationCenter.default.post(name: Notification.Name("NewTransactionSave"), object: nil)
+    }
+    
+    @objc func deleteData() {
+        guard let navigation = navigationController else { return }
+        presenter?.showPopupDelete(navigation: navigation, delegate: self)
     }
     
     @objc func saveData() {
@@ -202,7 +219,6 @@ class TransactionView: UIViewController {
             return
         }
         presenter?.saveData()
-        NotificationCenter.default.post(name: Notification.Name("NewTransactionSave"), object: nil)
         dismissView()
     }
     
@@ -283,5 +299,13 @@ extension TransactionView: DatePickerViewDelegate {
     func didTap(date: Date) {
         presenter?.transactionDetail.date = date
         setupDate()
+    }
+}
+
+// MARK: Popup Delete Delegate
+extension TransactionView: PopupDeleteDelegate {
+    func didTap() {
+        presenter?.deleteData()
+        dismissView()
     }
 }

@@ -47,6 +47,28 @@ class HomeScreenPresenter {
         }
     }
     
+    func setupTotalIncome() -> String {
+        let income = transactionData.filter({$0.transType == .income})
+        var totalIncome = 0.0
+        for trans in income {
+            totalIncome += trans.amount
+        }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter.string(from: NSNumber(value: totalIncome)) ?? "0"
+    }
+    
+    func setupTotalExpense() -> String {
+        let expense = transactionData.filter({$0.transType == .expense})
+        var totalExpense = 0.0
+        for trans in expense {
+            totalExpense += trans.amount
+        }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter.string(from: NSNumber(value: totalExpense)) ?? "0"
+    }
+    
     func navigateToEditTransaction(navigation: UINavigationController, index: Int) {
         let transData = transactionData[index]
         router.navigateToEditTransaction(navigation: navigation, data: (transData, CategoryData(image: transData.categoryImage, name: transData.categoryName)))
